@@ -11,7 +11,7 @@ export default async function SideNavServer() {
   const categories = await client.fetch<Category[]>(CategoriesQuery);
 
   return (
-    <div className="flex h-full flex-col px-3 py-4 md:px-2">
+    <div className="flex h-full flex-col p-4">
       <KodiaLogo />
       <SideNavClient categories={categories} />
     </div>
