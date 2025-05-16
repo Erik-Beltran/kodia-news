@@ -6,9 +6,13 @@ import { formatDate } from "@/utils/formatters";
 
 interface ArticleCardProps {
   article: ArticleWithAuthor;
+  showAuthor?: boolean;
 }
 
-export default function ArticleCard({ article }: ArticleCardProps) {
+export default function ArticleCard({
+  article,
+  showAuthor = true,
+}: ArticleCardProps) {
   const {
     _createdAt,
     _id,
@@ -59,20 +63,22 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         </div>
         <div className="text-xs flex justify-between items-end">
           <span className="text-xs">{formatDate(_createdAt)}</span>
-          <div className="flex flex-col items-center ">
-            <Image
-              src={authorImage}
-              alt={authorImage}
-              width={30}
-              height={30}
-              className="rounded-full aspect-square"
-              loading="lazy"
-            />
-            <Link
-              className="hover:text-blue-500 hover:underline cursor-pointer"
-              href={`author/${authorSlug}`}
-            >{`By ${authorName}`}</Link>
-          </div>
+          {showAuthor && (
+            <div className="flex flex-col items-center ">
+              <Image
+                src={authorImage}
+                alt={authorImage}
+                width={30}
+                height={30}
+                className="rounded-full aspect-square"
+                loading="lazy"
+              />
+              <Link
+                className="hover:text-blue-500 hover:underline cursor-pointer"
+                href={`/author/${authorSlug}`}
+              >{`By ${authorName}`}</Link>
+            </div>
+          )}
         </div>
       </div>
     </li>
