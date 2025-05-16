@@ -15,6 +15,10 @@ export type ArticleWithAuthor = {
   authorImage: string;
 };
 
+export type ArticleByAuthor = ArticleWithAuthor & {
+  authorBio?: string;
+};
+
 export type ArticleContent = ArticleWithAuthor & {
   content: PortableTextBlock[];
   tags: string[];
