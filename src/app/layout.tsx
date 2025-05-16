@@ -16,11 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-gray-500/10">
+        <div className="flex h-auto flex-col md:flex-row md:overflow-hidden bg-gray-500/10">
           <div className="w-full flex-none md:w-64">
             <SideNavServer />
           </div>
-          <div className="flex-grow p-4">{children}</div>
+          <div className="flex-grow p-4 text-gray-500">{children}</div>
         </div>
       </body>
     </html>

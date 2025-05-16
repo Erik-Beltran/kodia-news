@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+
 import { ArticleWithAuthor } from "@/types/sanity-extra";
 import { formatDate } from "@/utils/formatters";
 
@@ -25,7 +26,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
   return (
     <li
       key={_id}
-      className="shadow-sm cursor-pointer rounded-md bg-gray-100 hover:bg-gray-200 transition-all duration-300 text-gray-500 &>a:hover:text-blue-500"
+      className="shadow-sm rounded-md bg-gray-100 hover:bg-gray-200 transition-all duration-300 text-gray-500 &>a:hover:text-blue-500"
     >
       <Image
         src={imageUrl}
@@ -39,7 +40,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         <div className="flex justify-between border-b flex-col gap-2 border-gray-500">
           <Link
             href={`categories/${categorySlug}`}
-            className="text-sm font-bold text-blue-600 hover:underline"
+            className="text-sm font-bold text-blue-600 hover:underline cursor-pointer"
           >
             {categoryName}
           </Link>
@@ -68,7 +69,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
               loading="lazy"
             />
             <Link
-              className="hover:text-blue-500 hover:underline"
+              className="hover:text-blue-500 hover:underline cursor-pointer"
               href={`author/${authorSlug}`}
             >{`By ${authorName}`}</Link>
           </div>
