@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import { ArticleWithAuthor } from "@/types/sanity-extra";
 
-const HomepageQuery = defineQuery(`*[_type == "article"]{
+const HomepageQuery =
+  defineQuery(`*[_type == "article"] | order(_createdAt desc)[0...6]{
   _id,
   _createdAt,
   "categoryName":category->name,

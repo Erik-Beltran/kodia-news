@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "next-sanity";
+
 export type ArticleWithAuthor = {
   slug: string;
   imageUrl: string;
@@ -11,4 +13,9 @@ export type ArticleWithAuthor = {
   authorName: string;
   authorSlug: string;
   authorImage: string;
+};
+
+export type ArticleContent = ArticleWithAuthor & {
+  content: PortableTextBlock[];
+  tags: string[];
 };
