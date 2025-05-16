@@ -10,6 +10,7 @@ import { structure } from "@/sanity/structure";
 export default defineConfig({
   name: "default",
   title: "Kodia Test",
+  basePath: "/studio",
   plugins: [structureTool({ structure }), visionTool()],
   projectId,
   dataset,
