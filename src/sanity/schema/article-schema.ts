@@ -15,7 +15,21 @@ export const articleSchema = defineType({
       title: "Description",
       type: "text",
     },
-    // TODO: Add image field
+    {
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative Text",
+        },
+      ],
+    },
     {
       name: "slug",
       title: "Slug",
@@ -31,7 +45,28 @@ export const articleSchema = defineType({
       type: "array",
       of: [{ type: "block" }],
     },
-    // TODO: Add author reference field
-    // TODO: Add tags reference field
+    {
+      name: "author",
+      title: "Author",
+      type: "reference",
+      to: [{ type: "author" }],
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "category" }],
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: "tags",
+      type: "array",
+      title: "Tags",
+      of: [{ type: "string" }],
+      options: {
+        layout: "tags",
+      },
+    },
   ],
 });
