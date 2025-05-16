@@ -10,7 +10,21 @@ export const authorSchema = defineType({
       title: "Name",
       type: "string",
     },
-    // TODO: Add image field
+    {
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alternative Text",
+        },
+      ],
+    },
     {
       name: "bio",
       title: "Bio",
