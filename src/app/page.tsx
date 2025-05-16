@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default async function Home() {
   return (
     <main className="flex  flex-col p-4 h-full rounded-md bg-white gap-y-6">
-      <h1 className="text-4xl font-bold">Latest News</h1>
+      <h1 className="text-4xl font-bold text-black">Latest News</h1>
       <LatestArticles />
     </main>
   );

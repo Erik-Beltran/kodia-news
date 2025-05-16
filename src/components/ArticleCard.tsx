@@ -39,7 +39,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       <div className="px-3 py-4 flex flex-col gap-2 md:gap-3 flex-1">
         <div className="flex justify-between border-b flex-col gap-2 border-gray-500">
           <Link
-            href={`categories/${categorySlug}`}
+            href={`/category/${categorySlug}`}
             className="text-sm font-bold text-blue-600 hover:underline cursor-pointer"
           >
             {categoryName}
