@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SquareX } from "lucide-react";
+import { Menu, SquareX } from "lucide-react";
 
 import { Category } from "@/sanity/types";
 import SideNavItem from "./SideNavItem";
@@ -18,7 +18,9 @@ export default function SideNavClient({
   return (
     <>
       <div className="md:hidden p-4 self-end">
-        <button onClick={() => setIsOpen(!isOpen)}>☰</button>
+        <button onClick={() => setIsOpen(!isOpen)}>
+          <Menu />
+        </button>
       </div>
 
       {isOpen && (

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import AuthorCard from "./AuthorCard";
+
 import { ArticleWithAuthor } from "@/types/sanity-extra";
 import { formatDate } from "@/utils/formatters";
 
@@ -61,23 +63,14 @@ export default function ArticleCard({
             </p>
           </Link>
         </div>
-        <div className="text-xs flex justify-between items-end">
+        <div className="flex justify-between items-end">
           <span className="text-xs">{formatDate(_createdAt)}</span>
           {showAuthor && (
-            <div className="flex flex-col items-center ">
-              <Image
-                src={authorImage}
-                alt={authorImage}
-                width={30}
-                height={30}
-                className="rounded-full aspect-square"
-                loading="lazy"
-              />
-              <Link
-                className="hover:text-blue-500 hover:underline cursor-pointer"
-                href={`/author/${authorSlug}`}
-              >{`By ${authorName}`}</Link>
-            </div>
+            <AuthorCard
+              image={authorImage}
+              name={authorName}
+              slug={authorSlug}
+            />
           )}
         </div>
       </div>

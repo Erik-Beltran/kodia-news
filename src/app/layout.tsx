@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex flex-col md:flex-row md:overflow-hidden bg-gray-500/10 h-dvh">
+        <div className="flex flex-col md:flex-row md:overflow-hidden bg-gray-500/10 h-screen max-md:h-auto">
           <div className="w-full flex-none md:w-64">
             <SideNavServer />
           </div>
