@@ -34,29 +34,39 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   });
 
   return (
-    <main className="flex flex-col p-4 h-full rounded-md bg-white gap-y-6 flex-1">
-      <div className="lg:max-w-[1114px] mx-auto flex items-center gap-x-10">
-        <div className="flex flex-col">
-          <h2 className="text-2xl font-bold text-black">
-            {articles[0].authorName}
-          </h2>
-          <p className="block max-md:text-sm">{articles[0].authorBio}</p>
+    <main className="flex flex-col  h-full  gap-y-6 flex-1">
+      <section className="rounded-md bg-white p-4 flex">
+        <div className="lg:max-w-[1114px] mx-auto flex items-center gap-x-10">
+          <div className="flex flex-col">
+            <h2 className="text-2xl font-bold text-black">
+              {articles[0].authorName}
+            </h2>
+            <p className="block max-md:text-sm">{articles[0].authorBio}</p>
+          </div>
+          <Image
+            src={articles[0].authorImage}
+            alt={articles[0].authorImage}
+            width={200}
+            height={200}
+            className="rounded-full aspect-square block max-md:w-24 h-auto"
+            loading="lazy"
+          />
         </div>
-        <Image
-          src={articles[0].authorImage}
-          alt={articles[0].authorImage}
-          width={200}
-          height={200}
-          className="rounded-full aspect-square block max-md:w-24 h-auto"
-          loading="lazy"
-        />
-      </div>
-      <h3 className="text-4xl font-bold text-black">Articles</h3>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8  overflow-y-auto">
-        {articles.map((article) => (
-          <ArticleCard article={article} key={article._id} showAuthor={false} />
-        ))}
-      </ul>
+      </section>
+      <section>
+        <h3 className="text-4xl font-bold text-black bg-white rounded-md p-4 mb-6">
+          Articles
+        </h3>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8  overflow-y-auto">
+          {articles.map((article) => (
+            <ArticleCard
+              article={article}
+              key={article._id}
+              showAuthor={false}
+            />
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }

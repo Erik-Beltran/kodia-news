@@ -32,7 +32,7 @@ export default function ArticleCard({
   return (
     <li
       key={_id}
-      className="shadow-sm rounded-md bg-gray-100 hover:bg-gray-200 transition-all duration-300 text-gray-500 &>a:hover:text-blue-500"
+      className="shadow-sm rounded-md   hover:bg-gray-200 transition-all duration-300 text-gray-500 bg-white"
     >
       <Image
         src={imageUrl}

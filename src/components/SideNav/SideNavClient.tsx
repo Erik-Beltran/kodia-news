@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { Menu, SquareX } from "lucide-react";
 
-import { Category } from "@/sanity/types";
 import SideNavItem from "./SideNavItem";
+import { CategoryWithIcon } from "@/types/sanity-extra";
 
 export default function SideNavClient({
   categories,
 }: {
-  categories: Category[];
+  categories: CategoryWithIcon[];
 }) {
   const currentYear = new Date().getFullYear();
 
@@ -24,12 +24,12 @@ export default function SideNavClient({
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 bg-white z-50 p-6 md:hidden text-right">
+        <div className="fixed inset-0 left-32 shadow-sm bg-white z-50 p-6 md:hidden text-right  rounded-md">
           <button onClick={() => setIsOpen(false)} className="mb-4">
             <SquareX />
           </button>
           {categories.map((category) => (
-            <SideNavItem {...category} key={category._id} />
+            <SideNavItem {...category} key={category.name} />
           ))}
         </div>
       )}
@@ -37,7 +37,7 @@ export default function SideNavClient({
       <div className="hidden grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2  overflow-y-auto md:flex">
         <div className=" w-full rounded-md md:flex-col h-auto overflow-y-auto">
           {categories.map((category) => (
-            <SideNavItem {...category} key={category._id} />
+            <SideNavItem {...category} key={category.name} />
           ))}
         </div>
 
