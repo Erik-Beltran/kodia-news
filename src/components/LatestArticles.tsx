@@ -26,7 +26,7 @@ export default function LatestArticles() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await client.fetch(HomepageQuery);
+      const data = await client.fetch<ArticleWithAuthor[]>(HomepageQuery);
       setArticles(data);
     };
 

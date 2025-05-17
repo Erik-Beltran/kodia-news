@@ -1,6 +1,5 @@
 import { defineQuery } from "next-sanity";
 import { client } from "@/sanity/client";
-import { Category } from "@/sanity/types";
 
 import SideNavClient from "./SideNavClient";
 import { KodiaLogo } from "../KodiaLogo";

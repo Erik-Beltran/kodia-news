@@ -33,7 +33,7 @@ const ArticleBySlugQuery = defineQuery(
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
 
-  const article: ArticleContent = await client.fetch(ArticleBySlugQuery, {
+  const article = await client.fetch<ArticleContent>(ArticleBySlugQuery, {
     slug,
   });
 
