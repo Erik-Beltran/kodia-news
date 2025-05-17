@@ -3,6 +3,9 @@ import { client } from "@/sanity/client";
 import { defineQuery, PortableText } from "next-sanity";
 
 import { ArticleContent } from "@/types/sanity-extra";
+import AuthorCard from "@/components/AuthorCard";
+
+import { formatDate } from "@/utils/formatters";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -34,7 +37,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     slug,
   });
 
-  const { imageUrl, title, content, tags } = article;
+  const {
+    imageUrl,
+    title,
+    content,
+    tags,
+    authorImage,
+    authorName,
+    authorSlug,
+    _createdAt,
+  } = article;
 
   return (
     <div className="flex flex-col lg:max-w-[1114px] overflow-y-auto gap-y-4 h-full pb-5">
@@ -47,7 +59,17 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           loading="lazy"
           className="rounded-md w-full aspect-video"
         />
-        <h2 className="font-bold text-2xl text-black">{title}</h2>
+        <div className="flex justify-between items-end p-2 max-md:flex-col">
+          <h2 className="font-bold text-2xl text-black lg:w-[80%]">{title}</h2>
+          <div className="flex-1 flex justify-between items-end w-full">
+            <span className="text-xs">{formatDate(_createdAt)}</span>
+            <AuthorCard
+              image={authorImage}
+              name={authorName}
+              slug={authorSlug}
+            />
+          </div>
+        </div>
       </div>
 
       <div className="flex flex-col gap-x-8 lg:flex-row gap-y-4">
