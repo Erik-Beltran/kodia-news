@@ -34,7 +34,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   });
 
   return (
-    <main className="flex flex-col  h-full  gap-y-6 flex-1">
+    <main className="flex flex-col  h-full  gap-y-6 flex-1 overflow-y-auto">
       <section className="rounded-md bg-white p-4 flex">
         <div className="lg:max-w-[1114px] mx-auto flex items-center gap-x-10">
           <div className="flex flex-col">

@@ -15,7 +15,7 @@ const CategoriesQuery = defineQuery(`*[_type == "category"]{
 export default async function SideNavServer() {
   const categories = await client.fetch<CategoryWithIcon[]>(CategoriesQuery);
   categories.unshift({
-    iconName: "home",
+    iconName: "house",
     name: "Home",
     slug: "/",
   });
