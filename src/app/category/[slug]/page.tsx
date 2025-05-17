@@ -1,6 +1,5 @@
-import Image from "next/image";
 import { client } from "@/sanity/client";
-import { defineQuery, PortableText } from "next-sanity";
+import { defineQuery } from "next-sanity";
 
 import { ArticleWithAuthor } from "@/types/sanity-extra";
 import ArticleCard from "@/components/ArticleCard";
