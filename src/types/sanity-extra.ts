@@ -23,3 +23,9 @@ export type ArticleContent = ArticleWithAuthor & {
   content: PortableTextBlock[];
   tags: string[];
 };
+
+export type CategoryWithIcon = {
+  name: string;
+  slug: string;
+  iconName: string;
+};
