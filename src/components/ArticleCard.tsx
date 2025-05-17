@@ -51,17 +51,19 @@ export default function ArticleCard({
             {categoryName}
           </Link>
 
-          <h3 className="text-md md:text-xl font-bold line-clamp-2 h-14 text-black">
-            {title}
-          </h3>
-          <p className="text-sm md:text-md font-medium line-clamp-2 flex-1">
-            {description}
-          </p>
-          <Link href={`/article/${slug}`}>
-            <p className="text-xs md:text-md font-medium hover:text-blue-600 mb-2">
-              Read More
-            </p>
-          </Link>
+          <>
+            <Link href={`/article/${slug}`}>
+              <h3 className="text-md md:text-xl font-bold line-clamp-2 h-14 text-black">
+                {title}
+              </h3>
+              <p className="text-sm md:text-md font-medium line-clamp-2 flex-1 my-2">
+                {description}
+              </p>
+              <p className="text-xs md:text-md font-medium hover:text-blue-600 mb-2">
+                Read More
+              </p>
+            </Link>
+          </>
         </div>
         <div className="flex justify-between items-end">
           <span className="text-xs">{formatDate(_createdAt)}</span>
